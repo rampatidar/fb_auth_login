@@ -5,13 +5,13 @@ def create
              @user = User.find_by_fb_id(auth_hash["extra"]['raw_info']["id"])
             if @user.blank?
               username = auth_hash["extra"]['raw_info']["first_name"]+" "+auth_hash["extra"]['raw_info']["last_name"]
-              fb_id=auth_hash["extra"]['raw_info']["id"]
-              email=auth_hash["extra"]['raw_info']["email"]
-              city=auth_hash["extra"]['raw_info']["location"]["name"]
-              @user=User.create(:username=>username,:fb_id=>fb_id,:email=>email,:city=>city)
+              fb_id = auth_hash["extra"]['raw_info']["id"]
+              email = auth_hash["extra"]['raw_info']["email"]
+              city = auth_hash["extra"]['raw_info']["location"]["name"]
+              @user = User.create(:username=>username,:fb_id=>fb_id,:email=>email,:city=>city)
             end
-            session[:user_id]=@user
-            session[:facebook]=auth_hash
+            session[:user_id] = @user
+            session[:facebook] = auth_hash
             redirect_to welcome_path
         end
 
