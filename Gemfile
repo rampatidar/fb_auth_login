@@ -5,7 +5,7 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
@@ -27,6 +27,19 @@ gem 'jquery-rails'
 # To use debugger
  #gem 'linecache19',"~>0.5.12"
  #gem 'ruby-debug19', :require => 'ruby-debug'
+
+  group :development, :test do
+  gem 'ruby-debug19'
+  gem 'heroku'
+  gem 'sqlite3'
+#  gem 'autotest'
+#  gem 'autotest-fsevent', :require => 'autotest/fsevent'
+#  gem 'autotest-growl',   :require => 'autotest/growl'
+end
+
+group :production, :staging do
+  gem "pg"
+end
 
 group :test do
   # Pretty printed test output
