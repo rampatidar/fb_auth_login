@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 def create
        auth_hash = request.env['omniauth.auth']
-        if  !auth_hash.nil?
+        if !auth_hash.nil?
              @user = User.find_by_fb_id(auth_hash["extra"]['raw_info']["id"])
             if @user.blank?
               username=auth_hash["extra"]['raw_info']["first_name"]+" "+auth_hash["extra"]['raw_info']["last_name"]
