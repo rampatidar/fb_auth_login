@@ -4,7 +4,7 @@ def create
         if !auth_hash.nil?
              @user = User.find_by_fb_id(auth_hash["extra"]['raw_info']["id"])
             if @user.blank?
-              username=auth_hash["extra"]['raw_info']["first_name"]+" "+auth_hash["extra"]['raw_info']["last_name"]
+              username = auth_hash["extra"]['raw_info']["first_name"]+" "+auth_hash["extra"]['raw_info']["last_name"]
               fb_id=auth_hash["extra"]['raw_info']["id"]
               email=auth_hash["extra"]['raw_info']["email"]
               city=auth_hash["extra"]['raw_info']["location"]["name"]
