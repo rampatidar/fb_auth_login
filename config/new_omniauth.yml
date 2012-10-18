@@ -1,0 +1,9 @@
+development :
+  facebook :
+    key : "457831454258339"
+    secret_key : "050a65615343ea873843e36faffb8f11"
+
+production :
+  facebook :
+    key : "484280854939502"
+    secret_key : "b238bf89a81c88d84ae846fcb1a4ae5b"
