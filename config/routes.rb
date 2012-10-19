@@ -1,11 +1,18 @@
 NewOmniauth::Application.routes.draw do
-  resources :users
+  resources :users do
+    collection do
+       get :user_images
+    end
+    member do
+    end
+  end
   
   match '/auth/:provider/callback', :to =>'sessions#create'
    match '/auth/failure', :to => 'sessions#failure'
    match 'login', :to => 'sessions#login'
    match '/welcome', :to => 'sessions#welcome'
    match '/logout', :to=> 'sessions#logout'
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
