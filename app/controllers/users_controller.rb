@@ -25,14 +25,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def display_user
+
+  def show_user
     @user = User.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
-    end
   end
+
+
 
   # GET /users/new
   # GET /users/new.json
@@ -42,7 +44,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
-   
+    end
   end
 
   # GET /users/1/edit
