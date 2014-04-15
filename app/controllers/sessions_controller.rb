@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-
-  #login into system via facebook
+  # login into system via facebook
   def create
     auth_hash = request.env['omniauth.auth']
     unless auth_hash.nil?
@@ -24,7 +23,7 @@ class SessionsController < ApplicationController
   def welcome
   end
 
-  #logout from system as well as facebook.
+  # logout from system as well as facebook.
   def logout
     fb_token = (session['facebook']['credentials']['token'] rescue nil)
     session[:user_id] = nil
@@ -36,7 +35,7 @@ class SessionsController < ApplicationController
   private
   def create_user(user_info)
     raise 'NotAHashException' unless user_info.is_a?Hash
-    username = user_info['first_name'] + " " + user_info['last_name']
+    username = user_info['first_name'] + '' + user_info['last_name']
     @user = User.create!(username: username, fb_id: user_info['id'], email: user_info['email'], city: user_info['location']['name'])
-end
+  end
 end

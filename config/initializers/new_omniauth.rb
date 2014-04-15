@@ -1,3 +1,4 @@
+# creating a constant for storing applicaton configration in it.
 APP_CONFIG = Hash.new
 begin
   cfg = YAML::load_file(Rails.root.to_s + '/config/new_omniauth.yml')
