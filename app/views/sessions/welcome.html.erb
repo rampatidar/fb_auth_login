@@ -1,3 +1,3 @@
 <h1>Successfully logged in </h1>
-<%=image_tag(session[:facebook][:info][:image], :alt => "user image", :width => 100, :height => 100)%>
+<%=image_tag(@user_image, :alt => "user image", :width => 100, :height => 100)%>
 <%=link_to 'Logout',logout_path %>
